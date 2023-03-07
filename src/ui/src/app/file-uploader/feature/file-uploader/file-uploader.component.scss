@@ -1,0 +1,86 @@
+@import 'variables';
+
+.wrapper{
+  &__header{
+    font-size: $font-size-default;
+    color: $color-white;
+    text-align: center;
+  }
+}
+
+.container{
+  font-size: $font-size-default;
+  background: $color-white;
+  border-radius: 1rem;
+  text-align: center;
+  margin-top: 2rem;
+  padding: 1.2rem;
+  width: 80vw;
+  background-color: #eeb55f;
+  color: $color-black;
+
+  &__file-input{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 3px dashed;
+    height: 30rem;
+    background-color: #f49f1c;
+    cursor: pointer;
+
+    &-icon{
+      width: 7rem;
+      height: 7rem;
+    }
+
+    &-text{
+      font-weight: 600;
+    }
+  }
+}
+
+.user-info-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+
+  &__label{
+    color: $color-white;
+    margin-bottom: 1rem;
+  }
+
+  &__label,
+  &__input{
+    font-size: $font-size-default;
+  }
+
+  &__input{
+    padding: 1rem;
+  }
+}
+
+.buttons{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+
+  &__btn{
+    font-size: $font-size-default;
+    padding: 1rem;
+    border: none;
+    background-color: #0909f6;
+    color: $color-white;
+    border-radius: 1rem;
+    width: 20rem;
+    cursor: pointer;
+
+    &--disabled{
+      cursor: default;
+      opacity: 0.5;
+    }
+  }
+}
