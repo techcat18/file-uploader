@@ -1,0 +1,14 @@
+{
+  "labels":{
+    "uploadFile": "Upload a file*",
+    "chooseFile": "Choose a .docx file",
+    "enterEmail": "Enter your email*",
+    "chosenFile": "Chosen"
+  },
+  "buttons":{
+    "upload": "Upload"
+  },
+  "placeholders":{
+    "email": "Your email..."
+  }
+}

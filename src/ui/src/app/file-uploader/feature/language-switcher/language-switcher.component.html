@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="container__language-switcher">
+    <div class="container__language-current">
+      <svg class="container__language-icon">
+        <use attr.xlink:href="{{'../../assets/svg/sprite.svg#' + currLanguageCode + '-flag-icon'}}"></use>
+      </svg>
+      <p class="container__language-name">{{currLanguageCode}}</p>
+    </div>
+    <div class="container__language-dropdown">
+      <div
+        *ngFor="let lang of getLanguages()"
+        (click)="onLanguageSelected(lang)"
+        class="container__language-dropdown-option"
+      >
+        <svg class="container__language-icon">
+          <use attr.xlink:href="{{'../../assets/svg/sprite.svg#' + lang + '-flag-icon'}}"></use>
+        </svg>
+        <p class="container__language-name">{{lang}}</p>
+      </div>
+    </div>
+  </div>
+</div>

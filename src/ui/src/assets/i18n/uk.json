@@ -1,0 +1,14 @@
+{
+  "labels":{
+    "uploadFile": "Завантажте файл*",
+    "chooseFile": "Оберіть .docx файл",
+    "enterEmail": "Введіть Вашу пошту*",
+    "chosenFile": "Обраний"
+  },
+  "buttons":{
+    "upload": "Завантажити"
+  },
+  "placeholders":{
+    "email": "Ваша пошта..."
+  }
+}
