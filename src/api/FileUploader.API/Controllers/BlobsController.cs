@@ -1,6 +1,7 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 using FileUploader.API.Interfaces;
+using FileUploader.API.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -20,10 +21,10 @@ namespace FileUploader.API.Controllers
         [HttpPost]
         public async Task<IActionResult> Upload(
             [FromForm(Name = "file")]IFormFile file,
-            [FromForm]string email,
+            [FromForm]UserInfoModel model,
             CancellationToken cancellationToken)
         {
-            await _storageService.UploadFileAsync(file, email, cancellationToken);
+            await _storageService.UploadFileAsync(file, model.Email, cancellationToken);
             return NoContent();
         }
     }

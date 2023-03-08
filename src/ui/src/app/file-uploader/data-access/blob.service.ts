@@ -10,6 +10,9 @@ export class BlobService {
   constructor(private http: HttpClient) { }
 
   uploadBlob(model: FormData){
-    return this.http.post(environment.apiUrl + "blobs", model);
+    return this.http.post(environment.apiUrl + "blobs", model, {
+      reportProgress: true,
+      observe: "events"
+    });
   }
 }
