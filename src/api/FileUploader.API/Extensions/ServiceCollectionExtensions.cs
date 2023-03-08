@@ -1,6 +1,7 @@
 ﻿using Azure.Storage.Blobs;
 using FileUploader.API.Interfaces;
 using FileUploader.API.Services;
+using FluentValidation.AspNetCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -32,6 +33,14 @@ namespace FileUploader.API.Extensions
                         .AllowAnyMethod();
                 });
             });
+
+            return services;
+        }
+        
+        public static IServiceCollection ConfigureFluentValidation(this IServiceCollection services)
+        {
+            services.AddFluentValidation(fv =>
+                fv.RegisterValidatorsFromAssembly(typeof(Program).Assembly));
 
             return services;
         }
