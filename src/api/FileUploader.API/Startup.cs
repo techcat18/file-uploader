@@ -31,8 +31,10 @@ namespace FileUploader.API
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "FileUploader.API", Version = "v1" });
             });
+            
             services.ConfigureCors(Configuration);
             services.ConfigureServices(Configuration);
+            services.ConfigureFluentValidation();
         }
         
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
