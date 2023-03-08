@@ -16,7 +16,7 @@
   margin-top: 2rem;
   padding: 1.2rem;
   width: 80vw;
-  background-color: #eeb55f;
+  background-color: $color-orange-light;
   color: $color-black;
 
   &__file-input{
@@ -26,7 +26,7 @@
     justify-content: center;
     border: 3px dashed;
     height: 30rem;
-    background-color: #f49f1c;
+    background-color: $color-orange;
     cursor: pointer;
 
     &-icon{
@@ -36,6 +36,57 @@
 
     &-text{
       font-weight: 600;
+    }
+  }
+}
+
+.uploaded-container{
+  margin-top: 2rem;
+  padding: 1rem;
+  border-radius: 10px;
+  background-color: $color-orange;
+  position: relative;
+
+  &__content{
+    display: flex;
+    align-items: center;
+
+    &-details{
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: .5rem;
+
+      &-name,
+      &-size{
+        margin-left: 1rem;
+      }
+
+      &-size{
+        font-size: $font-size-small;
+        font-weight: 600;
+      }
+    }
+
+
+    &-file-icon,
+    &-tick-icon{
+      width: 5rem;
+      height: 5rem;
+    }
+
+    &-tick-icon{
+      margin-left: auto;
+    }
+
+    &-reset-btn{
+      color: red;
+      font-weight: 600;
+      font-size: $font-size-big;
+      cursor: pointer;
+      position: absolute;
+      top: -1.5rem;
+      right: -.5rem;
     }
   }
 }
@@ -59,6 +110,9 @@
 
   &__input{
     padding: 1rem;
+    &:focus{
+      outline: none;
+    }
   }
 }
 
@@ -72,7 +126,7 @@
     font-size: $font-size-default;
     padding: 1rem;
     border: none;
-    background-color: #0909f6;
+    background-color: $color-blue-light;
     color: $color-white;
     border-radius: 1rem;
     width: 20rem;

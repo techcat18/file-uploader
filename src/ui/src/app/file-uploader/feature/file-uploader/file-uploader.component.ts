@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { HttpEventType } from '@angular/common/http';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UploadBlobModel } from 'src/app/models/uploadBlobModel';
 import { BlobService } from '../../data-access/blob.service';
@@ -9,8 +10,12 @@ import { BlobService } from '../../data-access/blob.service';
   styleUrls: ['./file-uploader.component.scss']
 })
 export class FileUploaderComponent implements OnInit {
+  @ViewChild("fileInput")
+  fileInput!: ElementRef;
+
   form!: FormGroup;
-  formData: FormData = new FormData();
+  formData: FormData | null = new FormData();
+  chosenFile!: File | null;
 
   constructor(
     private fb: FormBuilder,
@@ -34,22 +39,29 @@ export class FileUploaderComponent implements OnInit {
 
   onFileChange(files: FileList | null){
     if (files){
-      this.formData.set("file", files[0]);
+      this.formData = new FormData();
+      this.chosenFile = files[0];
+      this.formData?.set("file", files[0]);
       this.form.get("file")?.setValue(this.formData);
     }
+  }
+
+  onResetFile(){
+    this.chosenFile = null;
+    this.fileInput.nativeElement.value = "";
+    this.formData = null;
+    this.form.get("file")?.setValue(this.formData);
   }
 
   onSubmit(){
     console.log(this.form.value);
     if (this.form.valid){
-      this.formData.set("email", this.email?.value);
+      this.formData?.set("email", this.email?.value);
       this.uploadBlob();
     }
   }
 
   uploadBlob(){
-    this.blobService.uploadBlob(this.formData).subscribe(b => {
-
-    })
+    this.blobService.uploadBlob(this.formData!).subscribe(_ => {})
   }
 }

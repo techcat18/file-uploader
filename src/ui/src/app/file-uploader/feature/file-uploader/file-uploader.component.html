@@ -1,9 +1,10 @@
+<language-switcher></language-switcher>
 <form
   class="wrapper"
   [formGroup]="form"
   (ngSubmit)="onSubmit()"
 >
-  <header class="wrapper__header">Upload a file*</header>
+  <header class="wrapper__header">{{'labels.uploadFile' | translate}}</header>
   <div class="container">
     <div
       class="container__file-input"
@@ -21,53 +22,50 @@
         <use xlink:href="../../assets/svg/sprite.svg#upload"></use>
       </svg>
       <p class="container__file-input-text">
-        Choose a .docx file
+        {{'labels.chooseFile' | translate}}
       </p>
     </div>
-    <!-- <section class="container__progress">
-      <li class="container__progress-row">
-        <div class="container__progress-content">
-          <div class="container__progress-content-details">
-            <span class="container__progress-content-details-name">
-              document1.docx
-            </span>
-            <span class="container__progress-content-details-percentage">
-              50%
-            </span>
-          </div>
-          <div class="container__progress-bar">
-            <div></div>
-          </div>
+    <section
+      *ngIf="chosenFile"
+      class="uploaded-container"
+    >
+      <div class="uploaded-container__content">
+        <svg class="uploaded-container__content-file-icon">
+          <use xlink:href="../../assets/svg/sprite.svg#file"></use>
+        </svg>
+        <div class="uploaded-container__content-details">
+          <span class="uploaded-container__content-details-name">
+            {{chosenFile.name}} &#x2022; {{'labels.chosenFile' | translate}}
+          </span>
+          <span class="uploaded-container__content-details-size">
+            {{chosenFile.size / 1000}} KB
+          </span>
         </div>
-      </li>
+        <span
+          (click)="onResetFile()"
+          class="uploaded-container__content-reset-btn"
+        >
+          &times;
+        </span>
+        <svg class="uploaded-container__content-tick-icon">
+          <use xlink:href="../../assets/svg/sprite.svg#tick"></use>
+        </svg>
+      </div>
     </section>
-    <section class="container__previous">
-      <li class="container__progress-row">
-        <div class="container__progress-content">
-          <div class="container__progress-content-details">
-            <span class="container__progress-content-details-name">
-              document1.docx
-            </span>
-            <span class="container__progress-content-details-size">
-              100 KB
-            </span>
-          </div>
-        </div>
-      </li>
-    </section> -->
   </div>
   <div class="user-info-container">
     <label
       for="email"
       class="user-info-container__label"
     >
-      Enter your email*
+      {{'labels.enterEmail' | translate}}
     </label>
     <input
       type="text"
       id="email"
       class="user-info-container__input"
       formControlName="email"
+      placeholder="{{'placeholders.email' | translate}}"
     >
   </div>
   <div class="buttons">
@@ -76,7 +74,7 @@
       class="buttons__btn"
       [ngClass]="{'buttons__btn--disabled': form.invalid}"
     >
-      Upload
+      {{'buttons.upload' | translate}}
     </button>
   </div>
 </form>
