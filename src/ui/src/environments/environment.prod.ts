@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  apiUrl: "https://fileuploader-api.azurewebsites.net/api/"
 };
