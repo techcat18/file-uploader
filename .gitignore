@@ -354,3 +354,6 @@ Thumbs.db
 Properties/
 .config
 *Backup.Infrastructure.csproj
+
+appsettings.json
+appsettings.development.json
