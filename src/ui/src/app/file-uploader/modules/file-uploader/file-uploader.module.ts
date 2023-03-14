@@ -4,18 +4,20 @@ import { FileUploaderComponent } from '../../feature/file-uploader/file-uploader
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
-import { LanguageSwitcherComponent } from '../../feature/language-switcher/language-switcher.component';
+import { DragDropDirective } from '../../directives/drag-drop.directive';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
     FileUploaderComponent,
-    LanguageSwitcherComponent
+    DragDropDirective
   ],
   imports: [
     CommonModule,
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
+    MatSnackBarModule,
     TranslateModule.forRoot()
   ]
 })

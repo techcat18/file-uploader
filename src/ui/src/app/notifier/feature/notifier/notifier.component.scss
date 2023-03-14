@@ -1,0 +1,32 @@
+@import 'variables';
+
+.container {
+  font-size: 1.2em;
+  color: #FFF;
+  font-size: $font-size-small;
+
+  &__status{
+    text-align: center;
+    font-weight: bold;
+  }
+
+  &__content{
+    border-radius: 2px;
+    margin: 5% 0;
+    text-align: center;
+  }
+}
+
+.btn {
+  text-align: center;
+}
+
+.btn>button {
+  font-size: 1em;
+  font-weight: bold;
+  padding: 2% 3%;
+  background-color: #FFF;
+  color: #000;
+  border: none;
+  cursor: pointer;
+}

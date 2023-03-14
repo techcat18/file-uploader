@@ -1,7 +1,6 @@
-import { HttpEventType } from '@angular/common/http';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { UploadBlobModel } from 'src/app/models/uploadBlobModel';
+import { NotifierService } from 'src/app/notifier/data-access/notifier.service';
 import { BlobService } from '../../data-access/blob.service';
 
 @Component({
@@ -19,7 +18,8 @@ export class FileUploaderComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private blobService: BlobService
+    private blobService: BlobService,
+    private notifierService: NotifierService
   ) { }
 
   ngOnInit(): void {
@@ -35,6 +35,16 @@ export class FileUploaderComponent implements OnInit {
       file: [null, [Validators.required]],
       email: [null, [Validators.required, Validators.email]]
     })
+  }
+
+  onFileDropped(files: any){
+    if (files){
+      let extension = files[0].name.split('.')[1];
+
+      if (extension.toLowerCase() == 'docx'){
+        this.onFileChange(files);
+      }
+    }
   }
 
   onFileChange(files: FileList | null){
@@ -62,6 +72,11 @@ export class FileUploaderComponent implements OnInit {
   }
 
   uploadBlob(){
-    this.blobService.uploadBlob(this.formData!).subscribe(_ => {})
+    this.blobService.uploadBlob(this.formData!).subscribe(_ => {
+      this.onResetFile();
+      this.notifierService.showNotification('Your file has been successfully uploaded to the blob storage!', 'SUCCESS');
+    }, err => {
+      this.notifierService.showNotification('Something went wrong, please try again', 'ERROR');
+    })
   }
 }

@@ -22,4 +22,17 @@ body {
   background-color: $color-blue;
   min-height: 100vh;
   border: none;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+
+html, body { height: 100%; }
+
+.SUCCESS {
+  background-color: rgb(5, 54, 230);
+}
+
+.ERROR {
+  background-color: rgb(246, 64, 51);
+}
+

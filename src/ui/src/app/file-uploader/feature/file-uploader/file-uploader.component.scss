@@ -1,4 +1,5 @@
 @import 'variables';
+@import 'animations';
 
 .wrapper{
   &__header{
@@ -41,7 +42,7 @@
 }
 
 .uploaded-container{
-  margin-top: 2rem;
+  margin-top: 1.5rem;
   padding: 1rem;
   border-radius: 10px;
   background-color: $color-orange;
@@ -137,4 +138,9 @@
       opacity: 0.5;
     }
   }
+}
+
+.fileover {
+  animation: shake .5s;
+  animation-iteration-count: infinite;
 }

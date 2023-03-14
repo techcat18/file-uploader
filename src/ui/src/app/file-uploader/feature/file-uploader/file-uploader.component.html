@@ -1,11 +1,10 @@
-<language-switcher></language-switcher>
 <form
   class="wrapper"
   [formGroup]="form"
   (ngSubmit)="onSubmit()"
 >
   <header class="wrapper__header">{{'labels.uploadFile' | translate}}</header>
-  <div class="container">
+  <div class="container" dragDrop (fileDropped)="onFileDropped($event)">
     <div
       class="container__file-input"
       (click)="fileInput.click()"
@@ -22,7 +21,8 @@
         <use xlink:href="../../assets/svg/sprite.svg#upload"></use>
       </svg>
       <p class="container__file-input-text">
-        {{'labels.chooseFile' | translate}}
+        {{'labels.chooseFile' | translate}} <br>
+        {{'labels.dropFile' | translate}}
       </p>
     </div>
     <section
