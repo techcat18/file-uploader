@@ -2,6 +2,7 @@
   "labels":{
     "uploadFile": "Завантажте файл*",
     "chooseFile": "Оберіть .docx файл",
+    "dropFile": "або перетащіть його сюди...",
     "enterEmail": "Введіть Вашу пошту*",
     "chosenFile": "Обраний"
   },

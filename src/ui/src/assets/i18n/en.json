@@ -2,6 +2,7 @@
   "labels":{
     "uploadFile": "Upload a file*",
     "chooseFile": "Choose a .docx file",
+    "dropFile": "or drop it here...",
     "enterEmail": "Enter your email*",
     "chosenFile": "Chosen"
   },
