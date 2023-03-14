@@ -4,6 +4,7 @@ using FileUploader.API.Services;
 using FluentValidation.AspNetCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using SendGrid;
 
 namespace FileUploader.API.Extensions
 {
@@ -41,6 +42,15 @@ namespace FileUploader.API.Extensions
         {
             services.AddFluentValidation(fv =>
                 fv.RegisterValidatorsFromAssembly(typeof(Program).Assembly));
+
+            return services;
+        }
+
+        public static IServiceCollection ConfigureSendGridClient(
+            this IServiceCollection services,
+            IConfiguration configuration)
+        {
+            services.AddScoped(_ => new SendGridClient(configuration.GetSection("SendGrid:ApiKey").Value));
 
             return services;
         }

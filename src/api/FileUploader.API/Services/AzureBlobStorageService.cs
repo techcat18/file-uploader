@@ -30,10 +30,10 @@ namespace FileUploader.API.Services
             
             var blobClient = blobContainerClient.GetBlobClient(fileName);
 
-            await SetEmailMetadata(blobClient, email);
+            var options = GetBlobOptions(blobClient, email);
 
             await using var stream = file.OpenReadStream();
-            await blobClient.UploadAsync(stream, true, cancellationToken);
+            await blobClient.UploadAsync(stream, options, cancellationToken);
         }
         
         private BlobContainerClient GetContainerClient(string blobContainerName)
@@ -43,14 +43,19 @@ namespace FileUploader.API.Services
             return containerClient;
         }
 
-        private async Task SetEmailMetadata(BlobBaseClient blobClient, string email)
+        private BlobUploadOptions GetBlobOptions(BlobBaseClient blobClient, string email)
         {
             var metadata = new Dictionary<string, string>
             {
                 ["Email"] = email
             };
 
-            await blobClient.SetMetadataAsync(metadata);
+            var blobOptions = new BlobUploadOptions
+            {
+                Metadata = metadata
+            };
+
+            return blobOptions;
         }
     }
 }

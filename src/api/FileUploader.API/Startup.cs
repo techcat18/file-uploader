@@ -35,18 +35,16 @@ namespace FileUploader.API
             services.ConfigureCors(Configuration);
             services.ConfigureServices(Configuration);
             services.ConfigureFluentValidation();
+            services.ConfigureSendGridClient(Configuration);
         }
         
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             app.UseCors();
-            
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "FileUploader.API v1"));
-            }
+
+            app.UseDeveloperExceptionPage();
+            app.UseSwagger();
+            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "FileUploader.API v1"));
 
             app.UseHttpsRedirection();
 

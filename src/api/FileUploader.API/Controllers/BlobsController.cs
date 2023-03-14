@@ -13,7 +13,8 @@ namespace FileUploader.API.Controllers
     {
         private readonly IStorageService _storageService;
 
-        public BlobsController(IStorageService storageService)
+        public BlobsController(
+            IStorageService storageService)
         {
             _storageService = storageService;
         }

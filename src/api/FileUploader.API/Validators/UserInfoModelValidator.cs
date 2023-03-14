@@ -8,8 +8,8 @@ namespace FileUploader.API.Validators
         public UserInfoModelValidator()
         {
             RuleFor(ui => ui.Email)
-                .NotEmpty()
-                .EmailAddress();
+                .NotEmpty().WithMessage("Email must not be empty")
+                .EmailAddress().WithMessage("Email must be valid");
         }
     }
 }
