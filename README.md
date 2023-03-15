@@ -6,6 +6,8 @@ On the main page there is a form for choosing a .docx file and a field for enter
 
 There is an option to change the language of the interface to English, Ukrainian or French.
 
+(please note that sometimes you may not receive an email immediately, please wait up to 5-10 minutes)
+
 ## Techonoligies used
 - Backend: ASP .NET API, Azure Functions, Azure Blob Storage
 - Frontend: Angular (Typescript, HTML, SASS)
