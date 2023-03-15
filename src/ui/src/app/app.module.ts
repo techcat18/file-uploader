@@ -7,10 +7,12 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FileUploaderModule } from './file-uploader/modules/file-uploader/file-uploader.module';
-import { DragDropDirective } from './file-uploader/directives/drag-drop.directive';
 import { LanguageSwitcherComponent } from './file-uploader/feature/language-switcher/language-switcher.component';
 import { NotifierComponent } from './notifier/feature/notifier/notifier.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { SpinnerComponent } from './spinner/feature/spinner/spinner.component';
+import { SpinnerModule } from './spinner/modules/spinner/spinner.module';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -26,7 +28,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     BrowserModule,
     AppRoutingModule,
     FileUploaderModule,
+    SpinnerModule,
     BrowserAnimationsModule,
+    MatProgressSpinnerModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

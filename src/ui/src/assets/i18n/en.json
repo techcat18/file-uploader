@@ -11,5 +11,9 @@
   },
   "placeholders":{
     "email": "Your email..."
-  }
+  },
+  "SUCCESS": "SUCCESS",
+  "ERROR": "ERROR",
+  "fileUploadedMessage": "Your file has been successfully uploaded to the blob storage!",
+  "somethingWentWrongMessage": "Something went wrong, please try again"
 }

@@ -15,7 +15,7 @@ export class NotifierService {
         message: message,
         type: messageType
       },
-      duration: 3000,
+      duration: 4000,
       horizontalPosition: 'right',
       verticalPosition: 'bottom',
       panelClass: messageType,

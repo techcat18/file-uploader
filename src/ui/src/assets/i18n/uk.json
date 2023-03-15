@@ -2,7 +2,7 @@
   "labels":{
     "uploadFile": "Завантажте файл*",
     "chooseFile": "Оберіть .docx файл",
-    "dropFile": "або перетащіть його сюди...",
+    "dropFile": "або перетягніть його сюди...",
     "enterEmail": "Введіть Вашу пошту*",
     "chosenFile": "Обраний"
   },
@@ -11,5 +11,9 @@
   },
   "placeholders":{
     "email": "Ваша пошта..."
-  }
+  },
+  "SUCCESS": "УСПІХ",
+  "ERROR": "ПОМИЛКА",
+  "fileUploadedMessage": "Ваш файл успішно завантажений у сховище!",
+  "somethingWentWrongMessage": "Щось пішло не так, будь ласка, спробуйте знову"
 }

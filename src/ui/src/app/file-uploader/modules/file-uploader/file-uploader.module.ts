@@ -6,6 +6,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 import { DragDropDirective } from '../../directives/drag-drop.directive';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { SpinnerModule } from 'src/app/spinner/modules/spinner/spinner.module';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     ReactiveFormsModule,
     FormsModule,
     MatSnackBarModule,
+    MatProgressSpinnerModule,
+    SpinnerModule,
     TranslateModule.forRoot()
   ]
 })

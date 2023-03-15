@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { TranslateService } from '@ngx-translate/core';
 import { NotifierService } from 'src/app/notifier/data-access/notifier.service';
 import { BlobService } from '../../data-access/blob.service';
 
@@ -19,7 +20,8 @@ export class FileUploaderComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private blobService: BlobService,
-    private notifierService: NotifierService
+    private notifierService: NotifierService,
+    private translateService: TranslateService
   ) { }
 
   ngOnInit(): void {
@@ -74,9 +76,9 @@ export class FileUploaderComponent implements OnInit {
   uploadBlob(){
     this.blobService.uploadBlob(this.formData!).subscribe(_ => {
       this.onResetFile();
-      this.notifierService.showNotification('Your file has been successfully uploaded to the blob storage!', 'SUCCESS');
+      this.notifierService.showNotification('fileUploadedMessage', 'SUCCESS');
     }, err => {
-      this.notifierService.showNotification('Something went wrong, please try again', 'ERROR');
+      this.notifierService.showNotification('somethingWentWrongMessage', 'ERROR');
     })
   }
 }
