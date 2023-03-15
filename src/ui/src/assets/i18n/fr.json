@@ -1,0 +1,19 @@
+{
+  "labels":{
+    "uploadFile": "Télécharger un fichier*",
+    "chooseFile": "Choisissez un fichier .docx",
+    "dropFile": "ou déposez-le ici...",
+    "enterEmail": "Entrer votre e-mail*",
+    "chosenFile": "Choisi"
+  },
+  "buttons":{
+    "upload": "Télécharger"
+  },
+  "placeholders":{
+    "email": "Votre e-mail..."
+  },
+  "SUCCESS": "SUCCÈS",
+  "ERROR": "ERREUR",
+  "fileUploadedMessage": "Votre fichier a été téléchargé avec succès sur le stockage blob !",
+  "somethingWentWrongMessage": "Une erreur s'est produite. Veuillez réessayer"
+}
