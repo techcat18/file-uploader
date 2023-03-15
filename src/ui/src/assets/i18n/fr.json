@@ -1,9 +1,9 @@
 {
   "labels":{
-    "uploadFile": "Télécharger un fichier*",
+    "uploadFile": "Téléchargez un fichier*",
     "chooseFile": "Choisissez un fichier .docx",
     "dropFile": "ou déposez-le ici...",
-    "enterEmail": "Entrer votre e-mail*",
+    "enterEmail": "Entrez votre e-mail*",
     "chosenFile": "Choisi"
   },
   "buttons":{
