@@ -41,10 +41,14 @@ namespace FileUploader.API
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             app.UseCors();
+            app.UseExceptionHandlingMiddleware();
 
-            app.UseDeveloperExceptionPage();
-            app.UseSwagger();
-            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "FileUploader.API v1"));
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+                app.UseSwagger();
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "FileUploader.API v1"));
+            }
 
             app.UseHttpsRedirection();
 

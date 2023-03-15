@@ -1,9 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using Azure.Storage.Blobs;
 using Azure.Storage.Blobs.Models;
 using Azure.Storage.Blobs.Specialized;
+using FileUploader.API.Exceptions;
 using FileUploader.API.Interfaces;
 using Microsoft.AspNetCore.Http;
 
@@ -32,8 +34,15 @@ namespace FileUploader.API.Services
 
             var options = GetBlobOptions(blobClient, email);
 
-            await using var stream = file.OpenReadStream();
-            await blobClient.UploadAsync(stream, options, cancellationToken);
+            try
+            {
+                await using var stream = file.OpenReadStream();
+                await blobClient.UploadAsync(stream, options, cancellationToken);
+            }
+            catch (Exception ex)
+            {
+                throw new FileUploadFailedException();
+            }
         }
         
         private BlobContainerClient GetContainerClient(string blobContainerName)

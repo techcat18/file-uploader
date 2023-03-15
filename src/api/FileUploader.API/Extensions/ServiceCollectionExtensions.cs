@@ -38,7 +38,8 @@ namespace FileUploader.API.Extensions
             return services;
         }
         
-        public static IServiceCollection ConfigureFluentValidation(this IServiceCollection services)
+        public static IServiceCollection ConfigureFluentValidation(
+            this IServiceCollection services)
         {
             services.AddFluentValidation(fv =>
                 fv.RegisterValidatorsFromAssembly(typeof(Program).Assembly));
